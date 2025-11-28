@@ -1,0 +1,89 @@
+baseURL = "/"
+languageCode = "en-us"
+title = "GPandas Documentation"
+contentDir = "content"
+enableEmoji = true
+enableGitInfo = false
+
+[build]
+  writeStats = true
+
+[module]
+  [[module.imports]]
+    path = "github.com/colinwilson/lotusdocs"
+    disable = false
+  [[module.imports]]
+    path = "github.com/gohugoio/hugo-mod-bootstrap-scss/v5"
+    disable = false
+
+[markup]
+  defaultMarkdownHandler = "goldmark"
+  [markup.tableOfContents]
+    endLevel = 3
+    startLevel = 1
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+    [markup.goldmark.parser]
+      [markup.goldmark.parser.attribute]
+        block = true
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    hl_Lines = ""
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = false
+    style = "monokai"
+    tabWidth = 4
+
+[params]
+  # Meta
+  title = "GPandas"
+  description = "A high-performance data manipulation library for Go, inspired by Python's pandas"
+  
+  # Landing page
+  [params.landing]
+    title = "GPandas"
+    subtitle = "High-performance data manipulation for Go"
+
+  # Docs
+  [params.docs]
+    title = "GPandas Documentation"
+    pathName = "docs"
+    
+    # Dark Mode Toggle
+    darkMode = true
+    
+    # Sidebar
+    [params.docs.sidebar]
+      collapsed = true
+    
+    # Table of contents
+    [params.docs.toc]
+      enable = true
+      
+  # FlexSearch
+  [params.flexsearch]
+    enabled = true
+    tokenize = "forward"
+    
+  # Feedback
+  [params.feedback]
+    enabled = false
+    
+  # Footer
+  [params.footer]
+    copyright = "GPandas Contributors"
+    version = true
+
+  # Social
+  [params.social]
+    github = "apoplexi24/gpandas"
+
+  # Theme Color
+  [params.docs.color]
+    primary = "#3B82F6"
+    primary_dark = "#2563EB"
+
