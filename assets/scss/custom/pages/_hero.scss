@@ -1,0 +1,27 @@
+//
+// hero.scss
+//
+
+@media (max-width:767px) {
+    .classic-hero-image img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+.hero {
+    background-size: cover;
+    padding-top: 70px;
+}
+
+// Vertical centering for hero content using table layout
+#hero {
+    min-height: 100vh;
+    
+    > .container {
+        display: table-cell;
+        vertical-align: middle;
+        width: 100vw;
+    }
+}
+

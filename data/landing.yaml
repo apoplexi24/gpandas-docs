@@ -27,7 +27,7 @@ hero:
 
   image:
     path: "images"
-    filename: "gpandas_hero.png"
+    filename: "gpandas.png"
     alt: "GPandas DataFrame"
     boxShadow: true
     rounded: true
@@ -47,7 +47,7 @@ hero:
 featureGrid:
   enable: true
   weight: 20
-  template: feature grid
+  template: feature_grid
 
   title: Why GPandas?
   subtitle: GPandas brings the power of pandas-style data manipulation to Go with blazing performance and type safety.
