@@ -75,7 +75,7 @@ enableGitInfo = false
     
   # Footer
   [params.footer]
-    copyright = "GPandas Contributors"
+    copyright = "A product by the House of Apoplexi"
     version = true
 
   # Social
