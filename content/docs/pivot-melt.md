@@ -145,9 +145,9 @@ flowchart LR
     end
     
     subgraph Result["Pivot Table"]
-        R1[Region | Q1 | Q2]
-        R2[North  | 250| 120]
-        R3[South  | 90 | 240]
+        R1["Region - Q1 - Q2"]
+        R2["North - 250 - 120"]
+        R3["South - 90 - 240"]
     end
     
     I1 --> OP
