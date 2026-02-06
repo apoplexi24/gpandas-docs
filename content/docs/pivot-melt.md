@@ -421,9 +421,9 @@ Transform from wide to long format:
 ```mermaid
 flowchart LR
     subgraph Wide["Wide Format"]
-        W1[Student | Math | Science | English]
-        W2[Alice   | 90   | 85      | 88]
-        W3[Bob     | 80   | 75      | 92]
+        W1["Student - Math - Science - English"]
+        W2["Alice - 90 - 85 - 88"]
+        W3["Bob - 80 - 75 - 92"]
     end
     
     subgraph Melt["Melt Operation"]
@@ -431,11 +431,11 @@ flowchart LR
     end
     
     subgraph Long["Long Format"]
-        L1[Student | Subject | Score]
-        L2[Alice   | Math    | 90]
-        L3[Alice   | Science | 85]
-        L4[Alice   | English | 88]
-        L5[Bob     | Math    | 80]
+        L1["Student - Subject - Score"]
+        L2["Alice - Math - 90"]
+        L3["Alice - Science - 85"]
+        L4["Alice - English - 88"]
+        L5["Bob - Math - 80"]
         L6[...]
     end
     
@@ -563,15 +563,15 @@ Pivot and Melt are inverse operations:
 ```mermaid
 flowchart TB
     subgraph Long["Long Format"]
-        LData[Student | Subject | Score]
+        LData["Student - Subject - Score"]
     end
     
     subgraph Wide["Wide Format"]
-        WData[Student | Math | Science | English]
+        WData["Student - Math - Science - English"]
     end
     
-    Long -->|PivotTable| Wide
-    Wide -->|Melt| Long
+    Long -- PivotTable --> Wide
+    Wide -- Melt --> Long
     
     style Long fill:#1e293b,stroke:#3b82f6,stroke-width:2px
     style Wide fill:#1e293b,stroke:#22c55e,stroke-width:2px
