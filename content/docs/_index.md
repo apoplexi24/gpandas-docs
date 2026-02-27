@@ -130,6 +130,7 @@ GPandas requires **Go version 1.18 or above** due to its use of generics.
 | Merging | `Merge()` | Join DataFrames (inner, left, right, full) |
 | Display | `String()` | Pretty-print DataFrame as table |
 | Export | `ToCSV()` | Export to CSV file or string |
+| Plotting | `PlotBar()`, `PlotLine()`, `PlotPie()` | Generate interactive charts |
 
 &nbsp;
 
@@ -167,6 +168,7 @@ Explore the documentation to learn more about GPandas capabilities:
 - [Creating DataFrames]({{< ref "creating-dataframes" >}}) - Build DataFrames from scratch
 - [DataFrame Operations]({{< ref "dataframe-operations" >}}) - Select, rename, display, and export
 - [Merging Data]({{< ref "merging-data" >}}) - Join and combine DataFrames
+- [Plotting Charts]({{< ref "plotting" >}}) - Visualize data with bar, line, and pie charts
 
 &nbsp;
 
