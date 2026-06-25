@@ -127,6 +127,9 @@ GPandas requires **Go version 1.18 or above** due to its use of generics.
 |---------|---------|-------------|
 | Column Selection | `Select()`, `SelectCol()` | Extract specific columns |
 | Renaming | `Rename()` | Rename columns while preserving order |
+| Filtering | `Filter()`, `Where()` | Subset rows by comparison or predicate |
+| Transformation | `Apply()`, `Map()`, `ApplyRow()` | Transform values and derive columns |
+| Statistics | `Describe()`, `Mean()`, `ValueCounts()` | Summarize and aggregate numeric data |
 | Merging | `Merge()` | Join DataFrames (inner, left, right, full) |
 | Display | `String()` | Pretty-print DataFrame as table |
 | Export | `ToCSV()` | Export to CSV file or string |
@@ -167,6 +170,11 @@ Explore the documentation to learn more about GPandas capabilities:
 
 - [Creating DataFrames]({{< ref "creating-dataframes" >}}) - Build DataFrames from scratch
 - [DataFrame Operations]({{< ref "dataframe-operations" >}}) - Select, rename, display, and export
+- [Filtering Data]({{< ref "filtering-data" >}}) - Subset rows by comparison or predicate
+- [Transforming Columns]({{< ref "transforming-data" >}}) - Apply and map functions over columns
+- [Summary Statistics]({{< ref "summary-statistics" >}}) - Describe and aggregate numeric data
+- [Sorting Data]({{< ref "sorting-data" >}}) - Order rows by values or index labels
+- [Pivot and Melt]({{< ref "pivot-melt" >}}) - Reshape data between wide and long formats
 - [Merging Data]({{< ref "merging-data" >}}) - Join and combine DataFrames
 - [Plotting Charts]({{< ref "plotting" >}}) - Visualize data with bar, line, and pie charts
 
