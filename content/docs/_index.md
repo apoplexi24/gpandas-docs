@@ -127,8 +127,12 @@ GPandas requires **Go version 1.18 or above** due to its use of generics.
 |---------|---------|-------------|
 | Column Selection | `Select()`, `SelectCol()` | Extract specific columns |
 | Renaming | `Rename()` | Rename columns while preserving order |
+| Adding Columns | `Assign()`, `AssignFunc()`, `Insert()` | Add, compute, or insert columns |
 | Filtering | `Filter()`, `Where()` | Subset rows by comparison or predicate |
 | Transformation | `Apply()`, `Map()`, `ApplyRow()` | Transform values and derive columns |
+| Missing Data | `FillNA()`, `DropNA()`, `IsNA()` | Detect, fill, and drop null values |
+| Deduplication | `Unique()`, `Duplicated()`, `DropDuplicates()` | Find distinct values and remove duplicates |
+| Type Casting | `AsType()`, `DTypes()`, `Info()` | Convert column types and inspect structure |
 | Statistics | `Describe()`, `Mean()`, `ValueCounts()` | Summarize and aggregate numeric data |
 | Merging | `Merge()` | Join DataFrames (inner, left, right, full) |
 | Display | `String()` | Pretty-print DataFrame as table |
@@ -170,8 +174,12 @@ Explore the documentation to learn more about GPandas capabilities:
 
 - [Creating DataFrames]({{< ref "creating-dataframes" >}}) - Build DataFrames from scratch
 - [DataFrame Operations]({{< ref "dataframe-operations" >}}) - Select, rename, display, and export
+- [Adding Columns]({{< ref "adding-columns" >}}) - Add, compute, and insert columns
 - [Filtering Data]({{< ref "filtering-data" >}}) - Subset rows by comparison or predicate
 - [Transforming Columns]({{< ref "transforming-data" >}}) - Apply and map functions over columns
+- [Handling Missing Data]({{< ref "missing-data" >}}) - Detect, fill, and drop null values
+- [Unique Values & Deduplication]({{< ref "unique-deduplication" >}}) - Distinct values and duplicate removal
+- [Type Casting & Inspection]({{< ref "type-casting" >}}) - Convert column types and inspect structure
 - [Summary Statistics]({{< ref "summary-statistics" >}}) - Describe and aggregate numeric data
 - [Sorting Data]({{< ref "sorting-data" >}}) - Order rows by values or index labels
 - [Pivot and Melt]({{< ref "pivot-melt" >}}) - Reshape data between wide and long formats
