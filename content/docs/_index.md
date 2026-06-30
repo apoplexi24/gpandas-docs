@@ -115,6 +115,8 @@ GPandas requires **Go version 1.18 or above** due to its use of generics.
 | Feature | Function | Description |
 |---------|----------|-------------|
 | CSV Files | `Read_csv()` | Load CSV files with concurrent parsing |
+| JSON | `Read_json()`, `ToJSON()` | Read and write records-oriented JSON |
+| Excel | `Read_excel()`, `ToExcel()` | Read and write .xlsx spreadsheets |
 | SQL Databases | `Read_sql()` | Query SQL Server, PostgreSQL, and more |
 | Google BigQuery | `From_gbq()` | Query BigQuery tables directly |
 | In-Memory | `DataFrame()` | Create DataFrames from Go data structures |
@@ -130,10 +132,14 @@ GPandas requires **Go version 1.18 or above** due to its use of generics.
 | Adding Columns | `Assign()`, `AssignFunc()`, `Insert()` | Add, compute, or insert columns |
 | Filtering | `Filter()`, `Where()` | Subset rows by comparison or predicate |
 | Transformation | `Apply()`, `Map()`, `ApplyRow()` | Transform values and derive columns |
+| String Methods | `Str().Lower()`, `Contains()`, `Len()` | Vectorized string operations |
 | Missing Data | `FillNA()`, `DropNA()`, `IsNA()` | Detect, fill, and drop null values |
 | Deduplication | `Unique()`, `Duplicated()`, `DropDuplicates()` | Find distinct values and remove duplicates |
 | Type Casting | `AsType()`, `DTypes()`, `Info()` | Convert column types and inspect structure |
 | Statistics | `Describe()`, `Mean()`, `ValueCounts()` | Summarize and aggregate numeric data |
+| Grouping | `GroupBy()`, `Agg()` | Group rows and aggregate |
+| Window | `Rolling()`, `Shift()`, `CumSum()` | Moving and cumulative operations |
+| Reshaping | `Stack()`, `Unstack()`, `PivotTable()`, `Melt()` | Convert between wide and long |
 | Merging | `Merge()` | Join DataFrames (inner, left, right, full) |
 | Display | `String()` | Pretty-print DataFrame as table |
 | Export | `ToCSV()` | Export to CSV file or string |
@@ -166,6 +172,7 @@ Explore the documentation to learn more about GPandas capabilities:
 ### Loading Data
 
 - [Loading CSV Files]({{< ref "read-csv" >}}) - Read CSV files into DataFrames
+- [JSON & Excel I/O]({{< ref "json-excel-io" >}}) - Read and write JSON and Excel files
 - [SQL Integration]({{< ref "sql-integration" >}}) - Connect to databases and BigQuery
 
 &nbsp;
@@ -177,12 +184,16 @@ Explore the documentation to learn more about GPandas capabilities:
 - [Adding Columns]({{< ref "adding-columns" >}}) - Add, compute, and insert columns
 - [Filtering Data]({{< ref "filtering-data" >}}) - Subset rows by comparison or predicate
 - [Transforming Columns]({{< ref "transforming-data" >}}) - Apply and map functions over columns
+- [String Methods]({{< ref "string-methods" >}}) - Vectorized string operations on columns
 - [Handling Missing Data]({{< ref "missing-data" >}}) - Detect, fill, and drop null values
 - [Unique Values & Deduplication]({{< ref "unique-deduplication" >}}) - Distinct values and duplicate removal
 - [Type Casting & Inspection]({{< ref "type-casting" >}}) - Convert column types and inspect structure
 - [Summary Statistics]({{< ref "summary-statistics" >}}) - Describe and aggregate numeric data
+- [Grouping & Aggregation]({{< ref "grouping-aggregation" >}}) - Group rows and aggregate
+- [Window Functions]({{< ref "window-functions" >}}) - Rolling, shift, and cumulative operations
 - [Sorting Data]({{< ref "sorting-data" >}}) - Order rows by values or index labels
 - [Pivot and Melt]({{< ref "pivot-melt" >}}) - Reshape data between wide and long formats
+- [Stacking & MultiIndex]({{< ref "stacking-multiindex" >}}) - Stack/unstack and composite indexes
 - [Merging Data]({{< ref "merging-data" >}}) - Join and combine DataFrames
 - [Plotting Charts]({{< ref "plotting" >}}) - Visualize data with bar, line, and pie charts
 
