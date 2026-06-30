@@ -622,6 +622,64 @@ func main() {
 
 &nbsp;
 
+## Merging on Multiple Keys
+
+`Merge` joins on a single key column. To join on a composite key of two or more columns, use `MergeOn`, which accepts a slice of key columns and supports the same merge types.
+
+&nbsp;
+
+### Function Signature
+
+```go
+func (df *DataFrame) MergeOn(other *DataFrame, on []string, how MergeHow) (*DataFrame, error)
+```
+
+All key columns in `on` must exist in both DataFrames. Rows with a null in any key column never match. The result contains the left columns followed by the right columns excluding the join keys.
+
+&nbsp;
+
+### Example
+
+Given a left DataFrame of sales and a right DataFrame of targets keyed by `year` and `region`:
+
+```go
+inner, err := left.MergeOn(right, []string{"year", "region"}, dataframe.InnerMerge)
+if err != nil {
+    log.Fatalf("MergeOn failed: %v", err)
+}
+fmt.Println(inner.String())
+```
+
+```
++------+--------+-------+--------+
+| year | region | sales | target |
++------+--------+-------+--------+
+| 2020 | N      | 10    | 100    |
+| 2021 | N      | 30    | 300    |
++------+--------+-------+--------+
+[2 rows x 4 columns]
+```
+
+Only rows whose `(year, region)` pair exists in both DataFrames are kept. A left merge keeps every left row, filling unmatched right columns with null:
+
+```go
+left, _ := left.MergeOn(right, []string{"year", "region"}, dataframe.LeftMerge)
+fmt.Println(left.String())
+```
+
+```
++------+--------+-------+--------+
+| year | region | sales | target |
++------+--------+-------+--------+
+| 2020 | N      | 10    | 100    |
+| 2020 | S      | 20    | null   |
+| 2021 | N      | 30    | 300    |
++------+--------+-------+--------+
+[3 rows x 4 columns]
+```
+
+&nbsp;
+
 ## See Also
 
 - [DataFrame Operations]({{< ref "dataframe-operations" >}}) - Select and transform data

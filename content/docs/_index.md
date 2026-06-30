@@ -117,6 +117,7 @@ GPandas requires **Go version 1.18 or above** due to its use of generics.
 | CSV Files | `Read_csv()` | Load CSV files with concurrent parsing |
 | JSON | `Read_json()`, `ToJSON()` | Read and write records-oriented JSON |
 | Excel | `Read_excel()`, `ToExcel()` | Read and write .xlsx spreadsheets |
+| Parquet | `Read_parquet()`, `ToParquet()` | Read and write Parquet files |
 | SQL Databases | `Read_sql()` | Query SQL Server, PostgreSQL, and more |
 | Google BigQuery | `From_gbq()` | Query BigQuery tables directly |
 | In-Memory | `DataFrame()` | Create DataFrames from Go data structures |
@@ -137,13 +138,17 @@ GPandas requires **Go version 1.18 or above** due to its use of generics.
 | Deduplication | `Unique()`, `Duplicated()`, `DropDuplicates()` | Find distinct values and remove duplicates |
 | Type Casting | `AsType()`, `DTypes()`, `Info()` | Convert column types and inspect structure |
 | Statistics | `Describe()`, `Mean()`, `ValueCounts()` | Summarize and aggregate numeric data |
+| Correlation | `Corr()`, `Cov()` | Pairwise correlation and covariance |
+| Sampling | `Sample()`, `Pipe()` | Random sampling and method chaining |
 | Grouping | `GroupBy()`, `Agg()` | Group rows and aggregate |
 | Window | `Rolling()`, `Shift()`, `CumSum()` | Moving and cumulative operations |
 | Reshaping | `Stack()`, `Unstack()`, `PivotTable()`, `Melt()` | Convert between wide and long |
-| Merging | `Merge()` | Join DataFrames (inner, left, right, full) |
+| DateTime | `ToDatetime()`, `Dt()` | Parse dates and extract components |
+| Categorical | `AsCategorical()`, `Categories()` | Memory-efficient repeated strings |
+| Merging | `Merge()`, `MergeOn()` | Join DataFrames on one or more keys |
 | Display | `String()` | Pretty-print DataFrame as table |
 | Export | `ToCSV()` | Export to CSV file or string |
-| Plotting | `PlotBar()`, `PlotLine()`, `PlotPie()` | Generate interactive charts |
+| Plotting | `PlotBar()`, `PlotScatter()`, `PlotHistogram()`, `PlotHeatmap()` | Generate interactive charts |
 
 &nbsp;
 
@@ -172,7 +177,7 @@ Explore the documentation to learn more about GPandas capabilities:
 ### Loading Data
 
 - [Loading CSV Files]({{< ref "read-csv" >}}) - Read CSV files into DataFrames
-- [JSON & Excel I/O]({{< ref "json-excel-io" >}}) - Read and write JSON and Excel files
+- [JSON, Excel & Parquet I/O]({{< ref "json-excel-io" >}}) - Read and write JSON, Excel, and Parquet files
 - [SQL Integration]({{< ref "sql-integration" >}}) - Connect to databases and BigQuery
 
 &nbsp;
@@ -189,13 +194,16 @@ Explore the documentation to learn more about GPandas capabilities:
 - [Unique Values & Deduplication]({{< ref "unique-deduplication" >}}) - Distinct values and duplicate removal
 - [Type Casting & Inspection]({{< ref "type-casting" >}}) - Convert column types and inspect structure
 - [Summary Statistics]({{< ref "summary-statistics" >}}) - Describe and aggregate numeric data
+- [Correlation, Sampling & Pipe]({{< ref "correlation-sampling" >}}) - Correlation, covariance, sampling, and chaining
 - [Grouping & Aggregation]({{< ref "grouping-aggregation" >}}) - Group rows and aggregate
 - [Window Functions]({{< ref "window-functions" >}}) - Rolling, shift, and cumulative operations
+- [DateTime]({{< ref "datetime" >}}) - Parse dates and extract components
+- [Categorical Data]({{< ref "categorical" >}}) - Memory-efficient repeated-string columns
 - [Sorting Data]({{< ref "sorting-data" >}}) - Order rows by values or index labels
 - [Pivot and Melt]({{< ref "pivot-melt" >}}) - Reshape data between wide and long formats
 - [Stacking & MultiIndex]({{< ref "stacking-multiindex" >}}) - Stack/unstack and composite indexes
-- [Merging Data]({{< ref "merging-data" >}}) - Join and combine DataFrames
-- [Plotting Charts]({{< ref "plotting" >}}) - Visualize data with bar, line, and pie charts
+- [Merging Data]({{< ref "merging-data" >}}) - Join and combine DataFrames (one or more keys)
+- [Plotting Charts]({{< ref "plotting" >}}) - Visualize data with bar, line, pie, scatter, histogram, and heatmap charts
 
 &nbsp;
 

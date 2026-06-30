@@ -1,6 +1,6 @@
 ---
 title: "Plotting Charts"
-description: "Visualize DataFrame data with interactive bar, line, and pie charts"
+description: "Visualize DataFrame data with interactive bar, line, pie, scatter, histogram, and heatmap charts"
 icon: "bar_chart"
 weight: 50
 ---
@@ -13,13 +13,16 @@ Learn how to create interactive charts directly from your DataFrames using GPand
 
 ## Overview
 
-GPandas provides three chart types that render as interactive HTML files:
+GPandas provides several chart types that render as interactive HTML files:
 
 | Chart Type | Method | Description |
 |------------|--------|-------------|
 | Bar Chart | `PlotBar()` | Compare categorical data with vertical bars |
 | Line Chart | `PlotLine()` | Visualize trends and changes over time |
 | Pie Chart | `PlotPie()` | Show proportional distribution of categories |
+| Scatter Chart | `PlotScatter()` | Plot one numeric column against another |
+| Histogram | `PlotHistogram()` | Show the frequency distribution of a numeric column |
+| Heatmap | `PlotHeatmap()` | Color a grid of numeric values (e.g. a correlation matrix) |
 
 All charts are rendered using the [go-echarts](https://github.com/go-echarts/go-echarts) library and output self-contained HTML files with interactive features like tooltips and legends.
 
@@ -641,9 +644,121 @@ func main() {
 
 &nbsp;
 
+---
+
+&nbsp;
+
+## Scatter Chart
+
+Plots one numeric column against another. Both columns must be numeric, and rows where either value is null are skipped.
+
+&nbsp;
+
+### Method Signature
+
+```go
+func (df *DataFrame) PlotScatter(xCol, yCol string, opts *plot.ChartOptions) error
+```
+
+&nbsp;
+
+### Example
+
+```go
+opts := &plot.ChartOptions{
+    Title:      "Sales vs Units",
+    OutputPath: "output/scatter.html",
+}
+err := df.PlotScatter("units", "sales", opts)
+if err != nil {
+    log.Fatalf("PlotScatter failed: %v", err)
+}
+```
+
+&nbsp;
+
+---
+
+&nbsp;
+
+## Histogram
+
+Bins a numeric column into equal-width intervals and plots the frequency of each bin. A non-positive `bins` value defaults to 10. Null values are skipped.
+
+&nbsp;
+
+### Method Signature
+
+```go
+func (df *DataFrame) PlotHistogram(column string, bins int, opts *plot.ChartOptions) error
+```
+
+&nbsp;
+
+### Example
+
+```go
+opts := &plot.ChartOptions{
+    Title:      "Sales Distribution",
+    OutputPath: "output/histogram.html",
+}
+err := df.PlotHistogram("sales", 20, opts)
+if err != nil {
+    log.Fatalf("PlotHistogram failed: %v", err)
+}
+```
+
+&nbsp;
+
+---
+
+&nbsp;
+
+## Heatmap
+
+Renders a grid of numeric values colored by magnitude. Numeric columns form the x-axis and row index labels form the y-axis. This pairs naturally with `Corr()` to visualize a correlation matrix.
+
+&nbsp;
+
+### Method Signature
+
+```go
+func (df *DataFrame) PlotHeatmap(opts *plot.ChartOptions) error
+```
+
+&nbsp;
+
+### Example
+
+```go
+// Visualize a correlation matrix as a heatmap
+corr, err := df.Corr()
+if err != nil {
+    log.Fatalf("Corr failed: %v", err)
+}
+
+opts := &plot.ChartOptions{
+    Title:      "Correlation Matrix",
+    OutputPath: "output/heatmap.html",
+}
+err = corr.PlotHeatmap(opts)
+if err != nil {
+    log.Fatalf("PlotHeatmap failed: %v", err)
+}
+```
+
+See [Correlation, Sampling & Pipe]({{< ref "correlation-sampling" >}}) for computing correlation matrices.
+
+&nbsp;
+
+---
+
+&nbsp;
+
 ## See Also
 
 - [DataFrame Operations]({{< ref "dataframe-operations" >}}) - Select and transform data before plotting
+- [Correlation, Sampling & Pipe]({{< ref "correlation-sampling" >}}) - Compute matrices for heatmaps
 - [Pivot and Melt]({{< ref "pivot-melt" >}}) - Reshape data for visualization
 - [Creating DataFrames]({{< ref "creating-dataframes" >}}) - Build DataFrames from scratch
 - [Loading CSV Files]({{< ref "read-csv" >}}) - Load data from CSV files
