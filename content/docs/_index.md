@@ -133,6 +133,8 @@ GPandas requires **Go version 1.18 or above** due to its use of generics.
 | Adding Columns | `Assign()`, `AssignFunc()`, `Insert()` | Add, compute, or insert columns |
 | Filtering | `Filter()`, `Where()` | Subset rows by comparison or predicate |
 | Transformation | `Apply()`, `Map()`, `ApplyRow()` | Transform values and derive columns |
+| Arithmetic | `Add()`, `Sub()`, `Mul()`, `Div()`, `AddScalar()` | Element-wise arithmetic on columns and scalars |
+| Comparison | `Gt()`, `Lt()`, `Eq()`, `GtScalar()` | Element-wise comparisons producing boolean columns |
 | String Methods | `Str().Lower()`, `Contains()`, `Len()` | Vectorized string operations |
 | Missing Data | `FillNA()`, `DropNA()`, `IsNA()` | Detect, fill, and drop null values |
 | Deduplication | `Unique()`, `Duplicated()`, `DropDuplicates()` | Find distinct values and remove duplicates |
@@ -189,6 +191,7 @@ Explore the documentation to learn more about GPandas capabilities:
 - [Adding Columns]({{< ref "adding-columns" >}}) - Add, compute, and insert columns
 - [Filtering Data]({{< ref "filtering-data" >}}) - Subset rows by comparison or predicate
 - [Transforming Columns]({{< ref "transforming-data" >}}) - Apply and map functions over columns
+- [Arithmetic & Comparison]({{< ref "arithmetic-operations" >}}) - Element-wise arithmetic and comparison across columns and scalars
 - [String Methods]({{< ref "string-methods" >}}) - Vectorized string operations on columns
 - [Handling Missing Data]({{< ref "missing-data" >}}) - Detect, fill, and drop null values
 - [Unique Values & Deduplication]({{< ref "unique-deduplication" >}}) - Distinct values and duplicate removal
