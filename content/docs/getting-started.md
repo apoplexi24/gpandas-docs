@@ -2,7 +2,7 @@
 title: "Getting Started"
 description: "Install GPandas and run your first data analysis program"
 icon: "rocket_launch"
-weight: 10
+weight: 5
 ---
 
 This guide will help you install GPandas and write your first data analysis program in Go.
