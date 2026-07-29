@@ -1,27 +1,350 @@
 //
-// hero.scss
+// hero.scss — GPandas landing page (modern redesign)
 //
 
-@media (max-width:767px) {
+// ---------------------------------------------------------------------------
+// Design tokens
+// ---------------------------------------------------------------------------
+$gp-blue:      #3b82f6; // blue-500
+$gp-blue-dark: #2563eb; // blue-600
+$gp-blue-deep: #1d4ed8; // blue-700
+$gp-sky:       #60a5fa; // blue-400
+$gp-ink:       #0f172a; // slate-900
+$gp-slate:     #475569; // slate-600
+$gp-brand-gradient: linear-gradient(135deg, #{$gp-blue-dark} 0%, #{$gp-blue} 55%, #{$gp-sky} 100%);
+
+// ---------------------------------------------------------------------------
+// Global polish
+// ---------------------------------------------------------------------------
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+// ---------------------------------------------------------------------------
+// Top navigation
+// ---------------------------------------------------------------------------
+#topnav {
+    padding: 6px 0;
+
+    // Home logo (top-left)
+    .logo svg {
+        height: 40px !important;
+        width: auto !important;
+    }
+
+    // Social / GitHub icon (top-right)
+    .social-link {
+        .btn-icon,
+        .btn-landing {
+            height: auto !important;
+            width: auto !important;
+            padding: 0 !important;
+            color: $gp-ink !important;
+            transition: transform 0.2s ease, color 0.2s ease;
+
+            &:hover {
+                color: $gp-blue-dark !important;
+                transform: translateY(-2px);
+            }
+        }
+        svg {
+            height: 34px !important;
+            width: 34px !important;
+        }
+    }
+}
+
+// ---------------------------------------------------------------------------
+// HERO
+// ---------------------------------------------------------------------------
+// NOTE: `#hero` (id) beats the inline `.hero { background-image }` set by the
+// theme template, so this replaces the flat gradient webp with a modern,
+// layered background (soft blue glows + a subtle dot grid).
+#hero {
+    position: relative;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding-top: 70px;
+    overflow: hidden;
+    background-color: #f8fafc;
+    background-image:
+        radial-gradient(circle at 14% 18%, rgba(37, 99, 235, 0.20), transparent 42%),
+        radial-gradient(circle at 88% 12%, rgba(96, 165, 250, 0.18), transparent 46%),
+        radial-gradient(circle at 50% 112%, rgba(59, 130, 246, 0.16), transparent 55%),
+        radial-gradient(rgba(15, 23, 42, 0.045) 1.1px, transparent 1.1px);
+    background-size: auto, auto, auto, 24px 24px;
+    background-position: center;
+
+    // Centered, max-width container (Bootstrap defaults) so the text + image
+    // group together and sit centered on screen instead of hugging the edges.
+    > .container {
+        display: block;
+        width: 100%;
+        margin-inline: auto;
+        position: relative;
+        z-index: 2;
+    }
+
+    // Badge / pill
+    .badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 7px 16px;
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+        color: $gp-blue-dark !important;
+        background: rgba(37, 99, 235, 0.10) !important;
+        border: 1px solid rgba(37, 99, 235, 0.28);
+        box-shadow: 0 2px 10px -4px rgba(37, 99, 235, 0.4);
+        margin-bottom: 18px !important;
+
+        &::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            margin-right: 8px;
+            background: $gp-brand-gradient;
+        }
+    }
+
+    // Headline
+    .title-heading {
+        line-height: 1.1;
+
+        .heading {
+            font-size: 76px !important;
+            font-weight: 800;
+            line-height: 1.03;
+            letter-spacing: -2px;
+            margin-bottom: 20px !important;
+            background: linear-gradient(120deg, #1e293b 0%, #2563eb 55%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+
+        .para-desc {
+            max-width: 540px;
+            font-size: 19px !important;
+            line-height: 1.7;
+            color: $gp-slate !important;
+        }
+    }
+
+    // Buttons
+    .btn {
+        border-radius: 12px !important;
+        padding: 13px 26px !important;
+        font-weight: 600 !important;
+        letter-spacing: 0.2px;
+        transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+
+        .material-icons {
+            font-size: 20px;
+            margin-right: 4px;
+        }
+    }
+
+    .btn-primary {
+        background: $gp-brand-gradient !important;
+        border: none !important;
+        color: #fff !important;
+        box-shadow: 0 12px 26px -8px rgba(37, 99, 235, 0.55);
+
+        &:hover,
+        &:focus,
+        &:active {
+            transform: translateY(-2px);
+            box-shadow: 0 18px 34px -10px rgba(37, 99, 235, 0.65);
+        }
+    }
+
+    .btn-outline-primary {
+        background: rgba(255, 255, 255, 0.7) !important;
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(37, 99, 235, 0.35) !important;
+        color: $gp-blue-dark !important;
+
+        &:hover,
+        &:focus,
+        &:active {
+            background: #fff !important;
+            border-color: $gp-blue-dark !important;
+            color: $gp-blue-dark !important;
+            transform: translateY(-2px);
+            box-shadow: 0 14px 26px -12px rgba(15, 23, 42, 0.3);
+        }
+    }
+
+    // "Open Source ..." info line
+    .title-heading > .text-muted:last-child {
+        margin-top: 22px !important;
+        font-size: 14px;
+        color: #94a3b8 !important;
+    }
+
+    // Product image (mascot) — floating, glowing card
+    .classic-hero-image {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &::before {
+            content: "";
+            position: absolute;
+            width: 78%;
+            height: 78%;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.45), rgba(59, 130, 246, 0.15) 55%, transparent 70%);
+            filter: blur(46px);
+            z-index: 0;
+        }
+
+        img {
+            position: relative;
+            z-index: 1;
+            max-width: 340px;
+            width: 100%;
+            height: auto !important;
+            border-radius: 28px !important;
+            box-shadow:
+                0 30px 60px -18px rgba(37, 99, 235, 0.5),
+                0 0 0 1px rgba(255, 255, 255, 0.7);
+            animation: gp-float 6s ease-in-out infinite;
+        }
+    }
+}
+
+@keyframes gp-float {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-14px); }
+}
+
+// ---------------------------------------------------------------------------
+// FEATURE GRID  ("Why GPandas?")
+// ---------------------------------------------------------------------------
+#featureGrid {
+    position: relative;
+    padding: 30px 0 110px;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+
+    // Section title
+    .section-title {
+        .title {
+            font-size: 42px !important;
+            font-weight: 800;
+            letter-spacing: -1px;
+            color: $gp-ink;
+            position: relative;
+            display: inline-block;
+
+            &::after {
+                content: "";
+                display: block;
+                width: 64px;
+                height: 4px;
+                border-radius: 2px;
+                margin: 18px auto 0;
+                background: linear-gradient(90deg, #{$gp-blue-dark}, #{$gp-sky});
+            }
+        }
+
+        .para-desc {
+            font-size: 18px !important;
+            color: $gp-slate !important;
+        }
+    }
+
+    // Give each card breathing room and equal height
+    .col-md-4 {
+        margin-bottom: 26px;
+        display: flex;
+    }
+
+    // Cards
+    .features {
+        width: 100%;
+        height: 100%;
+        align-items: flex-start;
+        background: #ffffff;
+        border: 1px solid rgba(15, 23, 42, 0.08);
+        border-radius: 18px;
+        padding: 26px !important;
+        box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+
+        &:hover {
+            transform: translateY(-6px);
+            border-color: rgba(37, 99, 235, 0.4);
+            box-shadow: 0 26px 44px -22px rgba(37, 99, 235, 0.4);
+        }
+
+        // Gradient icon chip
+        .icon {
+            height: 52px !important;
+            min-width: 52px !important;
+            width: 52px;
+            border-radius: 14px !important;
+            background: $gp-brand-gradient !important;
+            box-shadow: 0 10px 20px -8px rgba(37, 99, 235, 0.55);
+            align-self: flex-start;
+
+            i,
+            .material-icons {
+                color: #fff !important;
+            }
+        }
+
+        .title {
+            font-size: 19px !important;
+            font-weight: 700;
+            color: $gp-ink;
+            margin-bottom: 8px;
+        }
+
+        .para {
+            font-size: 15px;
+            line-height: 1.65;
+            color: $gp-slate !important;
+        }
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Responsive
+// ---------------------------------------------------------------------------
+@media (max-width: 991px) {
+    #hero .title-heading .heading {
+        font-size: 56px !important;
+    }
+}
+
+@media (max-width: 767px) {
+    #hero {
+        min-height: auto;
+        padding-top: 110px;
+        padding-bottom: 60px;
+    }
+    #hero .title-heading .heading {
+        font-size: 44px !important;
+        letter-spacing: -1px;
+    }
+    #hero .classic-hero-image img {
+        max-width: 260px;
+    }
+    #featureGrid .section-title .title {
+        font-size: 30px !important;
+    }
     .classic-hero-image img {
         max-width: 100%;
         height: auto;
     }
 }
-
-.hero {
-    background-size: cover;
-    padding-top: 70px;
-}
-
-// Vertical centering for hero content using table layout
-#hero {
-    min-height: 100vh;
-    
-    > .container {
-        display: table-cell;
-        vertical-align: middle;
-        width: 100vw;
-    }
-}
-
