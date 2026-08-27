@@ -3,6 +3,7 @@ import Image from 'next/image';
 import type { Metadata } from 'next';
 import {
   BadgeCheck,
+  BookMarked,
   Code,
   Database,
   Download,
@@ -66,7 +67,7 @@ export default function HomePage() {
   return (
     <main className="flex flex-1 flex-col">
       <section className="mx-auto flex w-full max-w-5xl flex-col items-center gap-10 px-4 py-20 md:flex-row md:items-center md:justify-between">
-        <div className="flex flex-col items-center gap-6 text-center md:items-start md:text-left">
+        <div className="flex min-w-0 flex-col items-center gap-6 text-center md:flex-1 md:items-start md:text-left">
           <span className="rounded-full bg-fd-primary/10 px-3 py-1 text-xs font-medium text-fd-primary">
             v1.0
           </span>
@@ -82,17 +83,24 @@ export default function HomePage() {
           <div className="flex flex-wrap items-center justify-center gap-3 md:justify-start">
             <Link
               href="/docs"
-              className="inline-flex items-center gap-2 rounded-lg bg-fd-primary px-5 py-2.5 text-sm font-medium text-fd-primary-foreground transition-opacity hover:opacity-90"
+              className="inline-flex items-center gap-2 rounded-lg bg-fd-primary px-4 py-2.5 text-sm font-medium text-fd-primary-foreground transition-opacity hover:opacity-90"
             >
               <Rocket className="size-4" aria-hidden="true" />
               Get Started
             </Link>
             <a
               href="https://github.com/apoplexi24/gpandas"
-              className="inline-flex items-center gap-2 rounded-lg border border-fd-border px-5 py-2.5 text-sm font-medium transition-colors hover:bg-fd-accent"
+              className="inline-flex items-center gap-2 rounded-lg border border-fd-border px-4 py-2.5 text-sm font-medium transition-colors hover:bg-fd-accent"
             >
               <Code className="size-4" aria-hidden="true" />
               View on GitHub
+            </a>
+            <a
+              href="https://pkg.go.dev/github.com/apoplexi24/gpandas"
+              className="inline-flex items-center gap-2 rounded-lg border border-fd-border px-4 py-2.5 text-sm font-medium transition-colors hover:bg-fd-accent"
+            >
+              <BookMarked className="size-4" aria-hidden="true" />
+              API Reference
             </a>
           </div>
           <p className="text-sm text-fd-muted-foreground">
