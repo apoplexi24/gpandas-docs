@@ -21,6 +21,18 @@ npm run dev
 
 The site is served at `http://localhost:3000`.
 
+## Configuration
+
+Copy `.env.example` to `.env.local` and set the canonical origin:
+
+```bash
+NEXT_PUBLIC_SITE_URL=https://your-docs-domain
+```
+
+This drives `sitemap.xml`, `robots.txt`, canonical links and Open Graph tags. It must be set in
+the production build environment, otherwise those absolute URLs fall back to the Vercel
+deployment URL, or `http://localhost:3000` when that is also absent.
+
 | Script                 | Purpose                                     |
 | ---------------------- | ------------------------------------------- |
 | `npm run dev`          | Dev server with hot reload                  |
@@ -35,6 +47,8 @@ app/
   (home)/            Landing page, uses Fumadocs HomeLayout
   docs/              Docs routes: layout + [[...slug]] catch-all page
   api/search/        Search endpoint backed by the content source
+  robots.ts          robots.txt generation
+  sitemap.ts         sitemap.xml generation, enumerated from the content source
 components/
   mdx.tsx            MDX component map (includes Mermaid)
   mermaid.tsx        Client-side Mermaid renderer
@@ -42,6 +56,7 @@ content/docs/        All documentation, as MDX + meta.json
 lib/
   source.ts          Fumadocs content source + lucide icon resolver
   layout.shared.tsx  Nav options shared by the docs and home layouts
+  metadata.ts        Canonical base URL used for SEO metadata
 public/              Static assets (images, embedded plot examples)
 scripts/             One-off migration script from the previous Hugo site
 ```

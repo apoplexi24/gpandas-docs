@@ -46,5 +46,18 @@ export async function generateMetadata(
   return {
     title: page.data.title,
     description: page.data.description,
+    alternates: {
+      canonical: page.url,
+    },
+    openGraph: {
+      type: 'article',
+      url: page.url,
+      title: page.data.title,
+      description: page.data.description,
+    },
+    twitter: {
+      title: page.data.title,
+      description: page.data.description,
+    },
   };
 }

@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   title: 'GPandas - Data Manipulation for Go',
   description:
     'A high-performance data manipulation and analysis library for Go',
+  alternates: {
+    canonical: '/',
+  },
 };
 
 const features: {
