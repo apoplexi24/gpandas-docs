@@ -1,0 +1,12 @@
+{
+  "title": "Selection & Filtering",
+  "description": "Subset, sort, and index DataFrame rows by value, predicate, label, or position",
+  "icon": "Funnel",
+  "pages": [
+    "filtering-data",
+    "selection-helpers",
+    "sorting-data",
+    "indexing-loc",
+    "indexing-iloc"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "title": "Text, Time & Categorical",
+  "description": "Work with string, datetime, and categorical column types",
+  "icon": "Type",
+  "pages": [
+    "string-methods",
+    "datetime",
+    "categorical"
+  ]
+}

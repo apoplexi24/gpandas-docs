@@ -1,0 +1,10 @@
+{
+  "title": "Loading Data",
+  "description": "Read data into DataFrames from CSV, JSON, Excel, Parquet, SQL databases, and BigQuery",
+  "icon": "FileUp",
+  "pages": [
+    "read-csv",
+    "sql-integration",
+    "json-excel-io"
+  ]
+}

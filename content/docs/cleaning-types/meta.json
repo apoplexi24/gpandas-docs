@@ -1,0 +1,10 @@
+{
+  "title": "Cleaning & Types",
+  "description": "Handle missing data, remove duplicates, and convert or inspect column types",
+  "icon": "Eraser",
+  "pages": [
+    "missing-data",
+    "unique-deduplication",
+    "type-casting"
+  ]
+}

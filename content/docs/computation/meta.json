@@ -1,0 +1,12 @@
+{
+  "title": "Computation & Aggregation",
+  "description": "Element-wise arithmetic, summary statistics, correlation, grouping, and window functions",
+  "icon": "Calculator",
+  "pages": [
+    "arithmetic-operations",
+    "summary-statistics",
+    "correlation-sampling",
+    "grouping-aggregation",
+    "window-functions"
+  ]
+}

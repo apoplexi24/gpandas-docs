@@ -1,0 +1,209 @@
+---
+title: "Documentation"
+description: "Learn how to use GPandas for data manipulation in Go"
+icon: "BookOpen"
+---
+
+Welcome to the GPandas documentation. GPandas is a high-performance data manipulation and analysis library written in Go, inspired by Python's popular pandas library.
+
+{/* IMAGE_PLACEHOLDER: GPandas logo and hero banner showing DataFrame visualization */}
+
+## Architecture Overview
+
+GPandas uses a columnar architecture for efficient data operations:
+
+```mermaid
+graph TB
+    subgraph GPandas["GPandas Library"]
+        GP[GoPandas Instance]
+        
+        subgraph DataSources["Data Sources"]
+            CSV[CSV Files]
+            SQL[SQL Databases]
+            GBQ[Google BigQuery]
+            MEM[In-Memory Data]
+        end
+        
+        subgraph Core["Core Components"]
+            DF[DataFrame]
+            SER[Series]
+            IDX[Index]
+        end
+        
+        subgraph Operations["Operations"]
+            SEL[Select / Filter]
+            MRG[Merge / Join]
+            LOC[Loc / iLoc Indexing]
+            EXP[Export]
+        end
+    end
+    
+    CSV --> GP
+    SQL --> GP
+    GBQ --> GP
+    MEM --> GP
+    GP --> DF
+    DF --> SER
+    DF --> IDX
+    DF --> SEL
+    DF --> MRG
+    DF --> LOC
+    DF --> EXP
+    
+    style GPandas fill:#1e293b,stroke:#3b82f6,stroke-width:2px
+    style Core fill:#0f172a,stroke:#22c55e,stroke-width:2px
+    style DataSources fill:#0f172a,stroke:#f59e0b,stroke-width:2px
+    style Operations fill:#0f172a,stroke:#8b5cf6,stroke-width:2px
+```
+
+## Quick Start
+
+Install GPandas using `go get`:
+
+```bash
+go get github.com/apoplexi24/gpandas
+```
+
+### Minimal Example
+
+```go
+package main
+
+import (
+    "fmt"
+    "github.com/apoplexi24/gpandas"
+)
+
+func main() {
+    gp := gpandas.GoPandas{}
+    
+    // Load data from CSV
+    df, err := gp.Read_csv("data.csv")
+    if err != nil {
+        panic(err)
+    }
+    
+    // Display the DataFrame
+    fmt.Println(df.String())
+}
+```
+
+## Requirements
+
+| Requirement | Version |
+|-------------|---------|
+| Go | 1.18 or above |
+| Architecture | Any (amd64, arm64) |
+
+GPandas requires **Go version 1.18 or above** due to its use of generics.
+
+## Core Features
+
+### Data Loading
+
+| Feature | Function | Description |
+|---------|----------|-------------|
+| CSV Files | `Read_csv()` | Load CSV files with concurrent parsing |
+| JSON | `Read_json()`, `ToJSON()` | Read and write records-oriented JSON |
+| Excel | `Read_excel()`, `ToExcel()` | Read and write .xlsx spreadsheets |
+| Parquet | `Read_parquet()`, `ToParquet()` | Read and write Parquet files |
+| SQL Databases | `Read_sql()` | Query SQL Server, PostgreSQL, and more |
+| Google BigQuery | `From_gbq()` | Query BigQuery tables directly |
+| In-Memory | `DataFrame()` | Create DataFrames from Go data structures |
+
+### DataFrame Operations
+
+| Feature | Methods | Description |
+|---------|---------|-------------|
+| Column Selection | `Select()`, `SelectCol()` | Extract specific columns |
+| Renaming | `Rename()` | Rename columns while preserving order |
+| Adding Columns | `Assign()`, `AssignFunc()`, `Insert()` | Add, compute, or insert columns |
+| Filtering | `Filter()`, `Where()` | Subset rows by comparison or predicate |
+| Membership & Range | `Isin()`, `Between()` | Subset rows by a set of values or a value range |
+| Top N | `Nlargest()`, `Nsmallest()` | Take the n largest or smallest rows without a full sort |
+| Transformation | `Apply()`, `Map()`, `ApplyRow()` | Transform values and derive columns |
+| Arithmetic | `Add()`, `Sub()`, `Mul()`, `Div()`, `AddScalar()` | Element-wise arithmetic on columns and scalars |
+| Comparison | `Gt()`, `Lt()`, `Eq()`, `GtScalar()` | Element-wise comparisons producing boolean columns |
+| String Methods | `Str().Lower()`, `Contains()`, `Len()` | Vectorized string operations |
+| Missing Data | `FillNA()`, `DropNA()`, `IsNA()` | Detect, fill, and drop null values |
+| Deduplication | `Unique()`, `Duplicated()`, `DropDuplicates()` | Find distinct values and remove duplicates |
+| Type Casting | `AsType()`, `DTypes()`, `Info()` | Convert column types and inspect structure |
+| Statistics | `Describe()`, `Mean()`, `ValueCounts()` | Summarize and aggregate numeric data |
+| Correlation | `Corr()`, `Cov()` | Pairwise correlation and covariance |
+| Sampling | `Sample()`, `Pipe()` | Random sampling and method chaining |
+| Grouping | `GroupBy()`, `Agg()` | Group rows and aggregate |
+| Window | `Rolling()`, `Shift()`, `CumSum()` | Moving and cumulative operations |
+| Reshaping | `Stack()`, `Unstack()`, `PivotTable()`, `Melt()` | Convert between wide and long |
+| DateTime | `ToDatetime()`, `Dt()` | Parse dates and extract components |
+| Categorical | `AsCategorical()`, `Categories()` | Memory-efficient repeated strings |
+| Merging | `Merge()`, `MergeOn()` | Join DataFrames on one or more keys |
+| Display | `String()` | Pretty-print DataFrame as table |
+| Export | `ToCSV()` | Export to CSV file or string |
+| Plotting | `PlotBar()`, `PlotScatter()`, `PlotHistogram()`, `PlotHeatmap()` | Generate interactive charts |
+
+### Indexing
+
+| Type | Accessor | Description |
+|------|----------|-------------|
+| Label-based | `Loc()` | Access by row labels and column names |
+| Position-based | `ILoc()` | Access by integer positions |
+| Index Management | `SetIndex()`, `ResetIndex()` | Custom row labels |
+
+## Documentation Guide
+
+Explore the documentation to learn more about GPandas capabilities:
+
+### Getting Started
+
+- [Installation & Setup](/docs/getting-started) - Install GPandas and run your first program
+
+### Loading Data
+
+- [Loading CSV Files](/docs/loading-data/read-csv) - Read CSV files into DataFrames
+- [JSON, Excel & Parquet I/O](/docs/loading-data/json-excel-io) - Read and write JSON, Excel, and Parquet files
+- [SQL Integration](/docs/loading-data/sql-integration) - Connect to databases and BigQuery
+
+### Working with DataFrames
+
+- [Creating DataFrames](/docs/dataframe-basics/creating-dataframes) - Build DataFrames from scratch
+- [DataFrame Operations](/docs/dataframe-basics/dataframe-operations) - Select, rename, display, and export
+- [Adding Columns](/docs/dataframe-basics/adding-columns) - Add, compute, and insert columns
+- [Filtering Data](/docs/selection-filtering/filtering-data) - Subset rows by comparison or predicate
+- [Membership, Range & Top-N](/docs/selection-filtering/selection-helpers) - Subset rows by value set, range, or the n largest and smallest values
+- [Transforming Columns](/docs/dataframe-basics/transforming-data) - Apply and map functions over columns
+- [Arithmetic & Comparison](/docs/computation/arithmetic-operations) - Element-wise arithmetic and comparison across columns and scalars
+- [String Methods](/docs/text-time-categorical/string-methods) - Vectorized string operations on columns
+- [Handling Missing Data](/docs/cleaning-types/missing-data) - Detect, fill, and drop null values
+- [Unique Values & Deduplication](/docs/cleaning-types/unique-deduplication) - Distinct values and duplicate removal
+- [Type Casting & Inspection](/docs/cleaning-types/type-casting) - Convert column types and inspect structure
+- [Summary Statistics](/docs/computation/summary-statistics) - Describe and aggregate numeric data
+- [Correlation, Sampling & Pipe](/docs/computation/correlation-sampling) - Correlation, covariance, sampling, and chaining
+- [Grouping & Aggregation](/docs/computation/grouping-aggregation) - Group rows and aggregate
+- [Window Functions](/docs/computation/window-functions) - Rolling, shift, and cumulative operations
+- [DateTime](/docs/text-time-categorical/datetime) - Parse dates and extract components
+- [Categorical Data](/docs/text-time-categorical/categorical) - Memory-efficient repeated-string columns
+- [Sorting Data](/docs/selection-filtering/sorting-data) - Order rows by values or index labels
+- [Pivot and Melt](/docs/reshaping-combining/pivot-melt) - Reshape data between wide and long formats
+- [Stacking & MultiIndex](/docs/reshaping-combining/stacking-multiindex) - Stack/unstack and composite indexes
+- [Merging Data](/docs/reshaping-combining/merging-data) - Join and combine DataFrames (one or more keys)
+- [Plotting Charts](/docs/visualization/plotting) - Visualize data with bar, line, pie, scatter, histogram, and heatmap charts
+
+### Indexing & Selection
+
+- [Label-based Indexing (Loc)](/docs/selection-filtering/indexing-loc) - Access data by labels
+- [Position-based Indexing (iLoc)](/docs/selection-filtering/indexing-iloc) - Access data by position
+
+### Core Types
+
+- [Series](/docs/core-types/series) - The fundamental column type
+
+## Performance Highlights
+
+GPandas is designed for speed:
+
+- **Columnar Storage**: Efficient memory layout for analytical queries
+- **Concurrent CSV Parsing**: Multi-core utilization for large files
+- **Zero-Copy Operations**: Minimal data copying where possible
+- **Thread-Safe Series**: RWMutex protection for concurrent access
+
+{/* IMAGE_PLACEHOLDER: Performance benchmark chart comparing GPandas vs Python pandas */}

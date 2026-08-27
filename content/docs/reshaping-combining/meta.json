@@ -1,0 +1,10 @@
+{
+  "title": "Reshaping & Combining",
+  "description": "Reshape between wide and long formats and combine DataFrames with pivot, melt, stack, and merge",
+  "icon": "Shuffle",
+  "pages": [
+    "pivot-melt",
+    "stacking-multiindex",
+    "merging-data"
+  ]
+}

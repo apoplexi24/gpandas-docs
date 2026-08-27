@@ -1,0 +1,21 @@
+@import 'tailwindcss';
+@import 'fumadocs-ui/css/neutral.css';
+@import 'fumadocs-ui/css/preset.css';
+
+/* GPandas brand colours, carried over from the Hugo site's
+   params.docs.color settings (#3B82F6 / #2563EB). */
+:root {
+  --color-fd-primary: oklch(0.62 0.19 259.8);
+}
+
+.dark {
+  --color-fd-primary: oklch(0.68 0.17 254.6);
+}
+
+/* Mermaid diagrams are rendered as inline SVG; keep them centred and
+   let them shrink on narrow viewports. */
+.prose svg[id^='mermaid'],
+[data-mermaid] svg {
+  max-width: 100%;
+  height: auto;
+}
