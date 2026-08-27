@@ -49,6 +49,8 @@ app/
   api/search/        Search endpoint backed by the content source
   robots.ts          robots.txt generation
   sitemap.ts         sitemap.xml generation, enumerated from the content source
+  icon.png           Favicon, squared off from public/images/gpandas.png
+  apple-icon.png     iOS home-screen icon (opaque background)
 components/
   mdx.tsx            MDX component map (includes Mermaid)
   mermaid.tsx        Client-side Mermaid renderer

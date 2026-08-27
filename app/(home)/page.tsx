@@ -116,10 +116,10 @@ export default function HomePage() {
         <Image
           src="/images/gpandas.png"
           alt="GPandas DataFrame"
-          width={1200}
-          height={630}
+          width={240}
+          height={279}
           priority
-          sizes="(min-width: 768px) 20vw, 45vw"
+          sizes="(min-width: 768px) 208px, 45vw"
           className="h-auto w-full max-w-[45%] shrink-0 rounded-xl border border-fd-border shadow-lg md:max-w-[20%]"
         />
       </section>
