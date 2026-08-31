@@ -18,6 +18,7 @@ GPandas provides several statistics helpers:
 | Mean | `Mean()` | `map[string]float64` |
 | Sum | `Sum()` | `map[string]float64` |
 | Standard deviation | `Std()` | `map[string]float64` |
+| Variance | `Var()` | `map[string]float64` |
 | Median | `Median()` | `map[string]float64` |
 | Minimum | `Min()` | `map[string]float64` |
 | Maximum | `Max()` | `map[string]float64` |
@@ -25,6 +26,8 @@ GPandas provides several statistics helpers:
 | Value frequencies | `ValueCounts()` | `*DataFrame` |
 
 **Note:** Aggregation helpers operate on numeric columns only and ignore null values. Non-numeric columns are skipped.
+
+For quantiles, distribution shape, the most frequent value, the label of an extreme, and boolean reductions, see [Reductions & Distribution Shape](/docs/computation/reductions).
 
 ---
 
@@ -178,6 +181,7 @@ Each aggregation helper returns a map keyed by numeric column name. Non-numeric 
 fmt.Printf("Mean:   %v\n", df.Mean())
 fmt.Printf("Sum:    %v\n", df.Sum())
 fmt.Printf("Std:    %v\n", df.Std())
+fmt.Printf("Var:    %v\n", df.Var())
 fmt.Printf("Median: %v\n", df.Median())
 fmt.Printf("Min:    %v\n", df.Min())
 fmt.Printf("Max:    %v\n", df.Max())
@@ -189,10 +193,13 @@ fmt.Printf("Max:    %v\n", df.Max())
 Mean:   map[Age:29.5 Salary:79500]
 Sum:    map[Age:177 Salary:477000]
 Std:    map[Age:3.6193922141707713 Salary:19623.96494085739]
+Var:    map[Age:13.1 Salary:3.851e+08]
 Median: map[Age:29 Salary:80000]
 Min:    map[Age:25 Salary:55000]
 Max:    map[Age:35 Salary:105000]
 ```
+
+`Var()` is the sample variance (ddof=1), so it is always exactly the square of `Std()`.
 
 ### Aggregation Semantics
 
@@ -201,6 +208,7 @@ Max:    map[Age:35 Salary:105000]
 | `Mean()` | `NaN` | the value |
 | `Sum()` | `0` | the value |
 | `Std()` | `NaN` | `NaN` (needs ≥ 2 values) |
+| `Var()` | `NaN` | `NaN` (needs ≥ 2 values) |
 | `Median()` | `NaN` | the value |
 | `Min()` / `Max()` | `NaN` | the value |
 
@@ -293,7 +301,7 @@ Statistics operations are thread-safe and read-only:
 | Method | Lock Type | Description |
 |--------|-----------|-------------|
 | `Describe()` | RLock | Read lock during computation |
-| `Mean()` / `Sum()` / `Std()` / `Median()` / `Min()` / `Max()` | RLock | Read lock during aggregation |
+| `Mean()` / `Sum()` / `Std()` / `Var()` / `Median()` / `Min()` / `Max()` | RLock | Read lock during aggregation |
 | `NullCount()` | RLock | Read lock during counting |
 | `ValueCounts()` | RLock | Read lock during tabulation |
 
@@ -353,6 +361,7 @@ func main() {
 
 ## See Also
 
+- [Reductions & Distribution Shape](/docs/computation/reductions) - Quantiles, skewness, kurtosis, mode, `IdxMax`/`IdxMin`, and `Any`/`All`
 - [DataFrame Operations](/docs/dataframe-basics/dataframe-operations) - Select and transform data
 - [Filtering Data](/docs/selection-filtering/filtering-data) - Subset rows by condition
 - [Transforming Columns](/docs/dataframe-basics/transforming-data) - Apply and map functions over columns
