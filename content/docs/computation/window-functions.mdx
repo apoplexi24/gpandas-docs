@@ -182,7 +182,7 @@ fmt.Println(result.String())
 [5 rows x 2 columns]
 ```
 
-Shifting is commonly used to compute period-over-period changes (e.g., subtract the shifted column from the original).
+Shifting is commonly used to compute period-over-period changes. Rather than shifting and subtracting by hand, use [`Diff`](/docs/computation/numeric-transforms) for the difference or [`PctChange`](/docs/computation/numeric-transforms) for the growth rate; both vacate cells exactly as `Shift` does.
 
 ---
 
@@ -243,6 +243,7 @@ Window operations read under a read lock and return new DataFrames, so the origi
 
 ## See Also
 
+- [Numeric Transforms](/docs/computation/numeric-transforms) - `Diff` and `PctChange` build on `Shift`, plus `Round`, `Clip`, `Abs`, and `Rank`
 - [Grouping & Aggregation](/docs/computation/grouping-aggregation) - Group-wise aggregations
 - [Sorting Data](/docs/selection-filtering/sorting-data) - Order rows before windowing
 - [Summary Statistics](/docs/computation/summary-statistics) - Whole-column statistics

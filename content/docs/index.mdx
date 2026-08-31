@@ -124,11 +124,13 @@ GPandas requires **Go version 1.18 or above** due to its use of generics.
 | Transformation | `Apply()`, `Map()`, `ApplyRow()` | Transform values and derive columns |
 | Arithmetic | `Add()`, `Sub()`, `Mul()`, `Div()`, `AddScalar()` | Element-wise arithmetic on columns and scalars |
 | Comparison | `Gt()`, `Lt()`, `Eq()`, `GtScalar()` | Element-wise comparisons producing boolean columns |
+| Numeric Transforms | `Round()`, `Clip()`, `Abs()`, `Diff()`, `PctChange()`, `Rank()` | Clean up values, measure row-over-row change, and rank |
 | String Methods | `Str().Lower()`, `Contains()`, `Len()` | Vectorized string operations |
 | Missing Data | `FillNA()`, `DropNA()`, `IsNA()` | Detect, fill, and drop null values |
 | Deduplication | `Unique()`, `Duplicated()`, `DropDuplicates()` | Find distinct values and remove duplicates |
 | Type Casting | `AsType()`, `DTypes()`, `Info()` | Convert column types and inspect structure |
 | Statistics | `Describe()`, `Mean()`, `ValueCounts()` | Summarize and aggregate numeric data |
+| Reductions | `Var()`, `Quantile()`, `Mode()`, `IdxMax()`, `Any()` | Spread, distribution shape, mode, and boolean reductions |
 | Correlation | `Corr()`, `Cov()` | Pairwise correlation and covariance |
 | Sampling | `Sample()`, `Pipe()` | Random sampling and method chaining |
 | Grouping | `GroupBy()`, `Agg()` | Group rows and aggregate |
@@ -172,11 +174,13 @@ Explore the documentation to learn more about GPandas capabilities:
 - [Membership, Range & Top-N](/docs/selection-filtering/selection-helpers) - Subset rows by value set, range, or the n largest and smallest values
 - [Transforming Columns](/docs/dataframe-basics/transforming-data) - Apply and map functions over columns
 - [Arithmetic & Comparison](/docs/computation/arithmetic-operations) - Element-wise arithmetic and comparison across columns and scalars
+- [Numeric Transforms](/docs/computation/numeric-transforms) - Round, clip, absolute value, row-over-row change, and ranking
 - [String Methods](/docs/text-time-categorical/string-methods) - Vectorized string operations on columns
 - [Handling Missing Data](/docs/cleaning-types/missing-data) - Detect, fill, and drop null values
 - [Unique Values & Deduplication](/docs/cleaning-types/unique-deduplication) - Distinct values and duplicate removal
 - [Type Casting & Inspection](/docs/cleaning-types/type-casting) - Convert column types and inspect structure
 - [Summary Statistics](/docs/computation/summary-statistics) - Describe and aggregate numeric data
+- [Reductions & Distribution Shape](/docs/computation/reductions) - Variance, quantiles, mode, index of extremes, and boolean reductions
 - [Correlation, Sampling & Pipe](/docs/computation/correlation-sampling) - Correlation, covariance, sampling, and chaining
 - [Grouping & Aggregation](/docs/computation/grouping-aggregation) - Group rows and aggregate
 - [Window Functions](/docs/computation/window-functions) - Rolling, shift, and cumulative operations

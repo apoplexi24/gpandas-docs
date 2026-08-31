@@ -1,9 +1,10 @@
 {
   "title": "Computation & Aggregation",
-  "description": "Element-wise arithmetic, summary statistics, reductions, correlation, grouping, and window functions",
+  "description": "Element-wise arithmetic, numeric transforms, summary statistics, reductions, correlation, grouping, and window functions",
   "icon": "Calculator",
   "pages": [
     "arithmetic-operations",
+    "numeric-transforms",
     "summary-statistics",
     "reductions",
     "correlation-sampling",
