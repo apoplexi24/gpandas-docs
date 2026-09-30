@@ -123,6 +123,8 @@ flowchart LR
 
 Categorical columns are most beneficial when a string column has many rows but few distinct values (low cardinality), such as country codes, status flags, or category labels. For high-cardinality columns (mostly unique values), a plain string column is usually preferable.
 
+`Cut` and `Qcut` also produce categorical columns. Unlike `AsCategorical`, their categories follow bin order and include bins no value landed in. See [Encoding & Binning](/docs/text-time-categorical/encoding-binning).
+
 ---
 
 ## Error Handling
@@ -148,3 +150,4 @@ Categorical columns are most beneficial when a string column has many rows but f
 - [Unique Values & Deduplication](/docs/cleaning-types/unique-deduplication) - Inspect cardinality
 - [String Methods](/docs/text-time-categorical/string-methods) - Operate on string columns
 - [Summary Statistics](/docs/computation/summary-statistics) - Value counts and frequencies
+- [Encoding & Binning](/docs/text-time-categorical/encoding-binning) - Build categorical bins with Cut and Qcut, and one-hot encode with GetDummies

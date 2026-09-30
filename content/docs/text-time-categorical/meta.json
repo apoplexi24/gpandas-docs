@@ -1,10 +1,11 @@
 {
   "title": "Text, Time & Categorical",
-  "description": "Work with string, datetime, and categorical column types",
+  "description": "Work with string, datetime, and categorical column types, and bin and encode columns",
   "icon": "Type",
   "pages": [
     "string-methods",
     "datetime",
-    "categorical"
+    "categorical",
+    "encoding-binning"
   ]
 }
