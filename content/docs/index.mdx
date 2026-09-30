@@ -133,7 +133,7 @@ GPandas requires **Go version 1.18 or above** due to its use of generics.
 | Reductions | `Var()`, `Quantile()`, `Mode()`, `IdxMax()`, `Any()` | Spread, distribution shape, mode, and boolean reductions |
 | Correlation | `Corr()`, `Cov()` | Pairwise correlation and covariance |
 | Sampling | `Sample()`, `Pipe()` | Random sampling and method chaining |
-| Grouping | `GroupBy()`, `Agg()` | Group rows and aggregate |
+| Grouping | `GroupBy()`, `Agg()`, `Transform()`, `Cumcount()` | Group rows, aggregate, and broadcast group results back to rows |
 | Window | `Rolling()`, `Shift()`, `CumSum()` | Moving and cumulative operations |
 | Reshaping | `Stack()`, `Unstack()`, `PivotTable()`, `Melt()` | Convert between wide and long |
 | DateTime | `ToDatetime()`, `Dt()` | Parse dates and extract components |
@@ -183,7 +183,7 @@ Explore the documentation to learn more about GPandas capabilities:
 - [Summary Statistics](/docs/computation/summary-statistics) - Describe and aggregate numeric data
 - [Reductions & Distribution Shape](/docs/computation/reductions) - Variance, quantiles, mode, index of extremes, and boolean reductions
 - [Correlation, Sampling & Pipe](/docs/computation/correlation-sampling) - Correlation, covariance, sampling, and chaining
-- [Grouping & Aggregation](/docs/computation/grouping-aggregation) - Group rows and aggregate
+- [Grouping & Aggregation](/docs/computation/grouping-aggregation) - Group rows, aggregate per group, broadcast results with Transform, and number rows with Cumcount
 - [Window Functions](/docs/computation/window-functions) - Rolling, shift, and cumulative operations
 - [DateTime](/docs/text-time-categorical/datetime) - Parse dates and extract components
 - [Categorical Data](/docs/text-time-categorical/categorical) - Memory-efficient repeated-string columns
